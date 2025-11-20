@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+
+    <!-- DETECTORS ON INCOMING LANES -->
+    <laneAreaDetector id="detector_east_0" lane="610420095#0_0" pos="5" length="5" freq="1" file="detector_output.xml" friendlyPos="true"/>
+    <laneAreaDetector id="detector_east_1" lane="610420095#0_1" pos="5" length="5" freq="1" file="detector_output.xml" friendlyPos="true"/>
+    <laneAreaDetector id="detector_south" lane="694768221#0_0" pos="5" length="5" freq="1" file="detector_output.xml" friendlyPos="true"/>
+    <laneAreaDetector id="detector_west_0" lane="-408162778#3_0" pos="5" length="5" freq="1" file="detector_output.xml" friendlyPos="true"/>
+    <laneAreaDetector id="detector_west_1" lane="-408162778#3_1" pos="5" length="5" freq="1" file="detector_output.xml" friendlyPos="true"/>
+    <laneAreaDetector id="detector_north" lane="694768222#0_0" pos="5" length="5" freq="1" file="detector_output.xml" friendlyPos="true"/>
+
+    <!-- EMERGENCY VEHICLE DETECTORS -->
+    <inductionLoop id="emergency_detector_east" lane="610420095#0_0" pos="10" freq="1" file="emergency_output.xml" friendlyPos="true"/>
+    <inductionLoop id="emergency_detector_south" lane="694768221#0_0" pos="10" freq="1" file="emergency_output.xml" friendlyPos="true"/>
+
+</additional>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- Define vehicle types -->
+    <vType id="car" accel="0.8" decel="4.5" sigma="0.1" length="5" minGap="2.5" maxSpeed="45" speedFactor="1.0" color="blue"/>
+    <vType id="motorcycle" accel="1.0" decel="4.5" sigma="0.1" length="2" minGap="1.5" maxSpeed="55" speedFactor="1.1" color="green"/>
+    <vType id="emergency" accel="1.2" decel="5.0" sigma="0.05" length="6" minGap="2.0" maxSpeed="50" speedFactor="1.2" color="red"/>
+
+    <!-- NEW MAP ROUTES (from 4 junctions through central cluster) -->
+    <!-- Note: 694768221#3 and 694768222#3 are dead-ends (no exit) - AVOID THEM -->
+    
+    <!-- From junction 420249146 (West) -->
+    <route id="route_from_420249146_1" edges="-408162778#3 -610420095#5"/>
+    <route id="route_from_420249146_2" edges="-408162778#3 694768221#3"/>
+    <route id="route_from_420249146_3" edges="-408162778#3 694768222#3"/>
+
+    <!-- From junction 420249262 (East) - 3 routes (2 to dead-ends where vehicles disappear) -->
+    <route id="route_from_420249262_1" edges="610420095#0 408162778#1"/>
+    <route id="route_from_420249262_2" edges="610420095#0 694768222#3"/>
+    <route id="route_from_420249262_3" edges="610420095#0 694768221#3"/>
+
+    <!-- From junction 6524986721 (South) - 3 routes (1 to dead-end where vehicle disappears) -->
+    <route id="route_from_6524986721_1" edges="694768221#0 408162778#1"/>
+    <route id="route_from_6524986721_2" edges="694768221#0 -610420095#5"/>
+    <route id="route_from_6524986721_3" edges="694768221#0 694768221#3"/>
+
+    <!-- From junction 6524986723 (North) - 3 routes (1 to dead-end where vehicle disappears) -->
+    <route id="route_from_6524986723_1" edges="694768222#0 408162778#1"/>
+    <route id="route_from_6524986723_2" edges="694768222#0 -610420095#5"/>
+    <route id="route_from_6524986723_3" edges="694768222#0 694768222#3"/>
+
+    <!-- VEHICLE FLOWS (50% cars, 50% motorcycles) - TĂNG LƯU LƯỢNG XE -->
+    
+    <!-- Flow from West (420249146) - 3 routes (2 to dead-ends where vehicles disappear) -->
+    <flow id="flow_west_1_car" type="car" route="route_from_420249146_1" begin="0" end="3600" period="40" departLane="random" color="blue"/>
+    <flow id="flow_west_1_moto" type="motorcycle" route="route_from_420249146_1" begin="0" end="3600" period="40" departLane="random" color="green"/>
+    <flow id="flow_west_2_car" type="car" route="route_from_420249146_2" begin="0" end="3600" period="50" departLane="random" color="blue"/>
+    <flow id="flow_west_2_moto" type="motorcycle" route="route_from_420249146_2" begin="0" end="3600" period="50" departLane="random" color="green"/>
+    <flow id="flow_west_3_car" type="car" route="route_from_420249146_3" begin="0" end="3600" period="60" departLane="random" color="blue"/>
+    <flow id="flow_west_3_moto" type="motorcycle" route="route_from_420249146_3" begin="0" end="3600" period="60" departLane="random" color="green"/>
+
+    <!-- Flow from East (420249262) - 3 routes (2 to dead-ends where vehicles disappear) -->
+    <flow id="flow_east_1_car" type="car" route="route_from_420249262_1" begin="0" end="3600" period="30" departLane="random" color="blue"/>
+    <flow id="flow_east_1_moto" type="motorcycle" route="route_from_420249262_1" begin="0" end="3600" period="30" departLane="random" color="green"/>
+    <flow id="flow_east_2_car" type="car" route="route_from_420249262_2" begin="0" end="3600" period="40" departLane="random" color="blue"/>
+    <flow id="flow_east_2_moto" type="motorcycle" route="route_from_420249262_2" begin="0" end="3600" period="40" departLane="random" color="green"/>
+    <flow id="flow_east_3_car" type="car" route="route_from_420249262_3" begin="0" end="3600" period="50" departLane="random" color="blue"/>
+    <flow id="flow_east_3_moto" type="motorcycle" route="route_from_420249262_3" begin="0" end="3600" period="50" departLane="random" color="green"/>
+
+    <!-- Flow from South (6524986721) - 3 routes (1 to dead-end where vehicles disappear) -->
+    <flow id="flow_south_1_car" type="car" route="route_from_6524986721_1" begin="0" end="3600" period="35" departLane="random" color="blue"/>
+    <flow id="flow_south_1_moto" type="motorcycle" route="route_from_6524986721_1" begin="0" end="3600" period="35" departLane="random" color="green"/>
+    <flow id="flow_south_2_car" type="car" route="route_from_6524986721_2" begin="0" end="3600" period="45" departLane="random" color="blue"/>
+    <flow id="flow_south_2_moto" type="motorcycle" route="route_from_6524986721_2" begin="0" end="3600" period="45" departLane="random" color="green"/>
+    <flow id="flow_south_3_car" type="car" route="route_from_6524986721_3" begin="0" end="3600" period="60" departLane="random" color="blue"/>
+    <flow id="flow_south_3_moto" type="motorcycle" route="route_from_6524986721_3" begin="0" end="3600" period="60" departLane="random" color="green"/>
+
+    <!-- Flow from North (6524986723) - 3 routes (1 to dead-end where vehicles disappear) -->
+    <flow id="flow_north_1_car" type="car" route="route_from_6524986723_1" begin="0" end="3600" period="45" departLane="random" color="blue"/>
+    <flow id="flow_north_1_moto" type="motorcycle" route="route_from_6524986723_1" begin="0" end="3600" period="45" departLane="random" color="green"/>
+    <flow id="flow_north_2_car" type="car" route="route_from_6524986723_2" begin="0" end="3600" period="60" departLane="random" color="blue"/>
+    <flow id="flow_north_2_moto" type="motorcycle" route="route_from_6524986723_2" begin="0" end="3600" period="60" departLane="random" color="green"/>
+    <flow id="flow_north_3_car" type="car" route="route_from_6524986723_3" begin="0" end="3600" period="70" departLane="random" color="blue"/>
+    <flow id="flow_north_3_moto" type="motorcycle" route="route_from_6524986723_3" begin="0" end="3600" period="70" departLane="random" color="green"/>
+
+    <!-- EMERGENCY VEHICLES (20 total, staggered timing) -->
+    <vehicle id="emergency_1" type="emergency" route="route_from_420249262_1" depart="300" color="red"/>
+    <vehicle id="emergency_2" type="emergency" route="route_from_420249262_1" depart="600" color="red"/>
+    <vehicle id="emergency_3" type="emergency" route="route_from_420249262_1" depart="900" color="red"/>
+    <vehicle id="emergency_4" type="emergency" route="route_from_6524986721_1" depart="1200" color="red"/>
+    <vehicle id="emergency_5" type="emergency" route="route_from_6524986723_1" depart="1500" color="red"/>
+    <vehicle id="emergency_6" type="emergency" route="route_from_420249146_1" depart="1800" color="red"/>
+    <vehicle id="emergency_7" type="emergency" route="route_from_420249146_2" depart="2100" color="red"/>
+    <vehicle id="emergency_8" type="emergency" route="route_from_420249146_3" depart="2400" color="red"/>
+    <vehicle id="emergency_9" type="emergency" route="route_from_6524986723_3" depart="2700" color="red"/>
+    <vehicle id="emergency_10" type="emergency" route="route_from_6524986721_3" depart="3000" color="red"/>
+    <vehicle id="emergency_11" type="emergency" route="route_from_420249262_2" depart="3300" color="red"/>
+    <vehicle id="emergency_12" type="emergency" route="route_from_420249262_3" depart="3600" color="red"/>
+    <vehicle id="emergency_13" type="emergency" route="route_from_420249146_1" depart="900" color="red"/>
+    <vehicle id="emergency_14" type="emergency" route="route_from_6524986721_1" depart="1800" color="red"/>
+    <vehicle id="emergency_15" type="emergency" route="route_from_6524986723_1" depart="2700" color="red"/>
+    <vehicle id="emergency_16" type="emergency" route="route_from_420249262_1" depart="1500" color="red"/>
+    <vehicle id="emergency_17" type="emergency" route="route_from_420249146_2" depart="2400" color="red"/>
+    <vehicle id="emergency_18" type="emergency" route="route_from_6524986721_3" depart="3000" color="red"/>
+    <vehicle id="emergency_19" type="emergency" route="route_from_6524986723_3" depart="3300" color="red"/>
+    <vehicle id="emergency_20" type="emergency" route="route_from_420249262_2" depart="3600" color="red"/>
+
+</routes>
+
